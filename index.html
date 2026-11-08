@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les Costauds — Le Goûter Sain & Gourmand des Enfants</title>
+  <meta name="description" content="Le premier brownie au chocolat bio avec 60% de sucre en moins et du Nutri-Score B. Livraison par abonnement directement à la maison." />
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --color-chocolate: #3D1F14;
+      --color-terracotta: #C84B31;
+      --color-sand: #FAFAF8;
+      --color-card-bg: #FFFFFF;
+      --color-soft-bg: #F5EEEA;
+      --color-text: #2B2B2B;
+      --color-muted: #666666;
+      --color-green: #2E7D32;
+      --font-heading: 'Fredoka', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --shadow-soft: 0 10px 30px rgba(61, 31, 20, 0.08);
+      --shadow-hover: 0 15px 35px rgba(200, 75, 49, 0.15);
+      --radius-card: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-sand);
+      color: var(--color-text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* HEADER & NAVIGATION */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(250, 250, 248, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(229, 223, 216, 0.6);
+      padding: 1rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--color-terracotta);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--color-chocolate);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-terracotta);
+    }
+
+    .btn-nav {
+      background-color: var(--color-terracotta);
+      color: #fff !important;
+      padding: 0.6rem 1.4rem;
+      border-radius: 50px;
+      box-shadow: 0 4px 12px rgba(200, 75, 49, 0.2);
+      transition: transform 0.2s ease, background-color 0.2s ease !important;
+    }
+
+    .btn-nav:hover {
+      background-color: #B23D25 !important;
+      transform: translateY(-2px);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      max-width: 1200px;
+      margin: 3rem auto 5rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--color-soft-bg);
+      color: var(--color-terracotta);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      line-height: 1.15;
+      color: var(--color-chocolate);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title span {
+      color: var(--color-terracotta);
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--color-muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-primary {
+      background-color: var(--color-terracotta);
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.05rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 6px 20px rgba(200, 75, 49, 0.3);
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: #B23D25;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(200, 75, 49, 0.4);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--color-chocolate);
+      padding: 0.9rem 1.8rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 2px solid var(--color-chocolate);
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--color-chocolate);
+      color: #fff;
+    }
+
+    .proof-stats {
+      display: flex;
+      gap: 2rem;
+      border-top: 1px solid #E5DFD8;
+      padding-top: 1.5rem;
+    }
+
+    .stat-item h4 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--color-terracotta);
+    }
+
+    .stat-item p {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      font-weight: 500;
+    }
+
+    /* HERO VISUAL CARD */
+    .hero-visual {
+      position: relative;
+    }
+
+    .product-card-preview {
+      background: var(--color-card-bg);
+      border-radius: 24px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 2px solid var(--color-soft-bg);
+      text-align: center;
+      position: relative;
+    }
+
+    .nutri-score-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #85BB2F;
+      color: #fff;
+      font-weight: 800;
+      padding: 0.4rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    .product-img-placeholder {
+      width: 100%;
+      height: 240px;
+      background: linear-gradient(135deg, #F5EEEA 0%, #E8DDD7 100%);
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--color-chocolate);
+    }
+
+    .product-img-placeholder i {
+      font-size: 4rem;
+      color: var(--color-terracotta);
+      margin-bottom: 0.5rem;
+    }
+
+    /* DUAL VALUE PROPOSITION */
+    .section-title {
+      text-align: center;
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      color: var(--color-chocolate);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--color-muted);
+      max-width: 600px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .dual-cards {
+      max-width: 1200px;
+      margin: 0 auto 5rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .value-card {
+      background: var(--color-card-bg);
+      border-radius: var(--radius-card);
+      padding: 2.5rem;
+      border: 1px solid #E5DFD8;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .value-card.parent {
+      border-top: 6px solid var(--color-terracotta);
+    }
+
+    .value-card.kid {
+      border-top: 6px solid #F4A261;
+    }
+
+    .card-header-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .parent .card-header-icon {
+      background: var(--color-soft-bg);
+      color: var(--color-terracotta);
+    }
+
+    .kid .card-header-icon {
+      background: #FEF3E6;
+      color: #F4A261;
+    }
+
+    .value-card h3 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--color-chocolate);
+      margin-bottom: 1rem;
+    }
+
+    .checklist {
+      list-style: none;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.95rem;
+    }
+
+    .checklist i {
+      color: var(--color-green);
+      margin-top: 0.2rem;
+    }
+
+    /* ERRC / INGREDIENTS HIGHLIGHT */
+    .ingredients-section {
+      background: #FFFFFF;
+      padding: 5rem 2rem;
+      border-top: 1px solid #E5DFD8;
+      border-bottom: 1px solid #E5DFD8;
+    }
+
+    .grid-4 {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .feature-box {
+      background: var(--color-sand);
+      padding: 1.8rem;
+      border-radius: 14px;
+      text-align: center;
+    }
+
+    .feature-box i {
+      font-size: 2rem;
+      color: var(--color-terracotta);
+      margin-bottom: 1rem;
+    }
+
+    .feature-box h4 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--color-chocolate);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-box p {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+    }
+
+    /* PRICING & SUBSCRIPTION SECTION */
+    .pricing-section {
+      max-width: 1200px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .pricing-card {
+      background: var(--color-card-bg);
+      border-radius: var(--radius-card);
+      padding: 2.5rem 2rem;
+      border: 1px solid #E5DFD8;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .pricing-card.popular {
+      border: 2px solid var(--color-terracotta);
+      transform: scale(1.03);
+    }
+
+    .badge-popular {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-terracotta);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+    }
+
+    .plan-name {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      color: var(--color-chocolate);
+      margin-bottom: 0.5rem;
+    }
+
+    .plan-price {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      color: var(--color-terracotta);
+      margin-bottom: 0.2rem;
+    }
+
+    .plan-price span {
+      font-size: 0.9rem;
+      font-family: var(--font-body);
+      color: var(--color-muted);
+    }
+
+    .plan-desc {
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--color-chocolate);
+      color: #E5DFD8;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 2.5rem;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 900px) {
+      .hero, .dual-cards, .grid-4, .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-card.popular {
+        transform: scale(1);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <i class="fa-solid fa-cookie-bite"></i> Les Costauds
+      </a>
+      <ul class="nav-links">
+        <li><a href="#concept">Le Concept</a></li>
+        <li><a href="#engagements">Vos Garanties</a></li>
+        <li><a href="#abonnements">Nos Offres</a></li>
+        <li><a href="#abonnements" class="btn-nav">Tester l'abonnement</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-medal"></i> Approuvé par 91% des parents et enfants
+      </div>
+      <h1 class="hero-title">
+        Le goût du vrai brownie, <span>60% de sucre en moins</span>.
+      </h1>
+      <p class="hero-subtitle">
+        Finie la tension du goûter à 16h. Découvrez Les Costauds : des brownies individuels riches en fibres prébiotiques, livrés directement chez vous.
+      </p>
+      <div class="hero-ctas">
+        <a href="#abonnements" class="btn-primary">
+          <i class="fa-solid fa-box-open"></i> Découvrir le coffret
+        </a>
+        <a href="#concept" class="btn-secondary">En savoir plus</a>
+      </div>
+      <div class="proof-stats">
+        <div class="stat-item">
+          <h4>Nutri-Score B</h4>
+          <p>Sans huile de palme</p>
+        </div>
+        <div class="stat-item">
+          <h4>-60% de Sucre</h4>
+          <p>vs. biscuits industriels</p>
+        </div>
+        <div class="stat-item">
+          <h4>Fabriqué en France</h4>
+          <p>Boulangerie partenaire</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="product-card-preview">
+        <div class="nutri-score-badge">NUTRI-SCORE B</div>
+        <div class="product-img-placeholder">
+          <i class="fa-solid fa-box-tissue"></i>
+          <span style="font-weight: 700; font-family: var(--font-heading); font-size: 1.2rem;">Coffret 7 Brownies (35g)</span>
+          <span style="font-size: 0.85rem; color: var(--color-muted);">Portions individuelles pour le cartable</span>
+        </div>
+        <h3 style="font-family: var(--font-heading); color: var(--color-chocolate); margin-bottom: 0.5rem;">Brownie Fondant au Chocolat Bio</h3>
+        <p style="font-size: 0.9rem; color: var(--color-muted);">Farine complète française & fibres de chicorée prébiotiques.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DUAL VALUE PROPOSITION SECTION -->
+  <section id="concept">
+    <h2 class="section-title">Pensé pour les Enfants, Validé par les Parents</h2>
+    <p class="section-subtitle">Le premier goûter qui réconcilie l'exigence nutritionnelle et le pur plaisir de la gourmandise.</p>
+
+    <div class="dual-cards">
+      <!-- PARENT CARD -->
+      <div class="value-card parent">
+        <div class="card-header-icon">
+          <i class="fa-solid fa-shield-heart"></i>
+        </div>
+        <h3>La Tranquillité des Parents</h3>
+        <ul class="checklist">
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Sérénité nutritionnelle :</strong> 60% de sucre en moins et un Nutri-Score B garanti.</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Satiété durable :</strong> Riche en fibres prébiotiques de chicorée pour éviter les coups de fatigue.</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Zéro charge mentale :</strong> Réapprovisionnement automatique à la maison chaque mois.</li>
+        </ul>
+      </div>
+
+      <!-- KID CARD -->
+      <div class="value-card kid">
+        <div class="card-header-icon">
+          <i class="fa-solid fa-face-smile-beam"></i>
+        </div>
+        <h3>Le Bonheur des Enfants</h3>
+        <ul class="checklist">
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Gourmandise absolue :</strong> Une texture moelleuse et un vrai goût de cacao intense.</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Pratique pour l'école :</strong> Format sachet individuel facile à glisser dans le cartable.</li>
+          <li><i class="fa-solid fa-circle-check"></i> <strong>Club Les Goûteurs :</strong> Surprises, défis et univers visuel captivant dans chaque boîte.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENGAGEMENTS / ERRC SECTION -->
+  <section id="engagements" class="ingredients-section">
+    <h2 class="section-title" style="margin-bottom: 3rem;">Nos Engagements Qualité</h2>
+    <div class="grid-4">
+      <div class="feature-box">
+        <i class="fa-solid fa-ban"></i>
+        <h4>Sans Additifs</h4>
+        <p>Zéro conservateur, zéro colorant et zéro huile de palme dans nos recettes.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fa-solid fa-wheat-awn"></i>
+        <h4>Farine Française</h4>
+        <p>Ingrédients simples issus de filières agricoles durables et responsables.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fa-solid fa-truck-ramp-box"></i>
+        <h4>Direct Producteur</h4>
+        <p>Fabriqué en France dans nos ateliers partenaires certifiés IFS/BRC.</p>
+      </div>
+      <div class="feature-box">
+        <i class="fa-solid fa-microscope"></i>
+        <h4>Conseil Scientifique</h4>
+        <p>Recette développée avec des experts en nutrition pédiatrique et l'INRAE.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING & SUBSCRIPTION SECTION -->
+  <section id="abonnements" class="pricing-section">
+    <h2 class="section-title">Choisissez Votre Formule Goûter</h2>
+    <p class="section-subtitle">Sans engagement de durée. Modifiez ou suspendez vos livraisons en un clic.</p>
+
+    <div class="pricing-grid">
+      <!-- DECOUVERTE -->
+      <div class="pricing-card">
+        <div>
+          <div class="plan-name">Découverte</div>
+          <div class="plan-price">5,29 € <span>/ pack</span></div>
+          <p class="plan-desc">Achat ponctuel sans abonnement (Boîte de 7 brownies).</p>
+          <ul class="checklist" style="margin-bottom: 2rem;">
+            <li><i class="fa-solid fa-check"></i> 7 brownies individuels (35g)</li>
+            <li><i class="fa-solid fa-check"></i> Livraison standard</li>
+          </ul>
+        </div>
+        <a href="#" class="btn-secondary" style="text-align: center;">Commander 1 boîte</a>
+      </div>
+
+      <!-- 3 MOIS -->
+      <div class="pricing-card popular">
+        <div class="badge-popular">Le Plus Populaire</div>
+        <div>
+          <div class="plan-name">Abonnement 3 Mois</div>
+          <div class="plan-price">4,49 € <span>/ pack</span></div>
+          <p class="plan-desc">Livraison mensuelle de 4 boîtes (28 goûters par mois).</p>
+          <ul class="checklist" style="margin-bottom: 2rem;">
+            <li><i class="fa-solid fa-check"></i> <strong>Economisez 15%</strong> sur chaque boîte</li>
+            <li><i class="fa-solid fa-check"></i> Livraison à domicile offerte</li>
+            <li><i class="fa-solid fa-check"></i> Accès au Club "Les Goûteurs"</li>
+          </ul>
+        </div>
+        <a href="#" class="btn-primary" style="text-align: center; justify-content: center;">S'abonner maintenant</a>
+      </div>
+
+      <!-- 6 MOIS -->
+      <div class="pricing-card">
+        <div>
+          <div class="plan-name">Sérénité 6-12 Mois</div>
+          <div class="plan-price">3,90 € <span>/ pack</span></div>
+          <p class="plan-desc">Engagement longue durée pour les grandes familles.</p>
+          <ul class="checklist" style="margin-bottom: 2rem;">
+            <li><i class="fa-solid fa-check"></i> <strong>Economisez 26%</strong> par rapport à l'unité</li>
+            <li><i class="fa-solid fa-check"></i> Cadeaux &amp; goodies exclusifs</li>
+            <li><i class="fa-solid fa-check"></i> Flexibilité totale de suspension</li>
+          </ul>
+        </div>
+        <a href="#" class="btn-secondary" style="text-align: center;">Profiter de l'offre</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3><i class="fa-solid fa-cookie-bite"></i> Les Costauds</h3>
+        <p style="font-size: 0.9rem; max-width: 350px; margin-top: 0.5rem; color: rgba(255,255,255,0.7);">
+          Reinventing childhood snacking through clean nutrition, sustainable baking, and direct-to-consumer convenience.
+        </p>
+      </div>
+      <div>
+        <h4 style="color: #fff; margin-bottom: 1rem; font-family: var(--font-heading);">Navigation</h4>
+        <p><a href="#concept" style="color: rgba(255,255,255,0.7); text-decoration: none;">Le Concept</a></p>
+        <p><a href="#engagements" style="color: rgba(255,255,255,0.7); text-decoration: none;">Engagements</a></p>
+        <p><a href="#abonnements" style="color: rgba(255,255,255,0.7); text-decoration: none;">Abonnements</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Les Costauds SAS. Tous droits réservés.</p>
+      <p>Conçu pour le Master Executive — Pitch Project</p>
+    </div>
+  </footer>
+
+</body>
+</html>
